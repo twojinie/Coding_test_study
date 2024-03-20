@@ -1,0 +1,41 @@
+def solution(food_times, k):
+  answer = 0
+  num = 0
+  kk = int(k)
+  if sum(food_times) < k :
+      return -1
+
+  while kk >= 0 :
+      if num >= len(food_times):
+          num = num % len(food_times)
+
+      if food_times[num] < 1 :
+          num +=1
+          # continue
+
+      elif food_times[num] >= 1 :
+          num +=1
+          food_times[num] -=1
+          kk -=1 #음식을 먹을때만 kk 하나 카운트
+
+  if num >= len(food_times):
+      num = num % len(food_times)
+  answer = num + 1     
+
+  return answer
+
+
+
+
+a, b = input().split()
+a1 = []
+for i in a:
+  if str(type(i)) == "class<'int'>" :
+    a1.append(i)
+
+print(a1)
+for j in a1:
+  print(j)
+#print(b)
+
+#solution(a1,b)
